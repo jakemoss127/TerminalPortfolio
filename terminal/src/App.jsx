@@ -47,13 +47,13 @@ function App() {
         setInput('');
         return;
       case 'ascii':
-        output = <pre>{'\n' + ascii}</pre>;
+        output = <pre style={{marginTop: '1.8rem'}}>{ascii}</pre>;
         break;
       case 'exit':
         window.close();
         return;
       default:
-        output = <span>Unknown command: {input}</span>;
+        output = <span><span style={{color: 'red'}}>Unknown command: </span>{input}</span>;
     }
     setHistory(prevHistory => [
       ...prevHistory,
