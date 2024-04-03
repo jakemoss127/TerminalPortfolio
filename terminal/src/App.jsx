@@ -111,7 +111,7 @@ function App() {
         output = 'Opening Internshark Trailer...';
         break;
       case 'projects go 3':
-        window.open('https://jacobmoss.top');
+        window.open('https://jacobmoss.netlify.app/');
         output = 'Opening Portfolio...';
         break;
       case 'projects go 4':
