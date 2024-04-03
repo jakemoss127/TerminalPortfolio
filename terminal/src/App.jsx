@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
+import Resume from '../src/assets/JacobMoss_Resume.pdf'; 
 
 function App() {
   const [input, setInput] = useState('');
@@ -23,24 +24,70 @@ function App() {
         <p><span style={commandStyle}>projects</span><span style={{descriptionStyle}}>- view my projects</span></p>
         <p><span style={commandStyle}>clear</span><span style={{descriptionStyle}}>- clear the terminal</span></p>
         <p><span style={commandStyle}>education</span><span style={{descriptionStyle}}>- view my education background</span></p>
-        <p><span style={commandStyle}>echo</span><span style={{descriptionStyle}}>- repeats inputted word</span></p>
         <p><span style={commandStyle}>ascii</span><span style={{descriptionStyle}}>- prints Jacob Moss ascii art</span></p>
         <p><span style={commandStyle}>exit</span><span style={{descriptionStyle}}>- closes the current window</span></p>
+        <p><span style={commandStyle}>pwd</span><span style={{descriptionStyle}}>- prints working directory</span></p>
+        <p><span style={commandStyle}>ls</span><span style={{descriptionStyle}}>- lists files available for download</span></p>
+        <p><span style={commandStyle}>linkedin</span><span style={{descriptionStyle}}>- opens my LinkedIn profile</span></p>
+        <p><span style={commandStyle}>github</span><span style={{descriptionStyle}}>- opens my GitHub page</span></p>
+        <p><span style={commandStyle}>contact</span><span style={{descriptionStyle}}>- reveals contact information</span></p>
       </div>
     );
   };
 
+  const getProjects = () => {
+    return(
+      <div>
+        <p>Below are some technical projects I have worked on recently. Please feel free to reach out for more information.</p>
+        <br/><p style={{fontWeight: 'bold'}}>1. SwiftRead</p>
+        <p>AI article summarizer built using React, RapidAPI and Tailwind.</p><br/>
+        <p style={{fontWeight: 'bold'}}>2. Internshark</p>
+        <p>Student internship portal SaaS where students can easily apply to jobs in one click (coming soon).</p><br/>
+        <p style={{fontWeight: 'bold'}}>3. Portfolio</p>
+        <p>GUI Portfolio hosted on the internet.</p><br/>
+        <p style={{fontWeight: 'bold'}}>4. CaSMM</p>
+        <p>The worlds first Arduino block code portal to teach students how to code in a hands-on matter</p><br/>
+        <p style={{fontWeight: 'bold'}}>View Project: projects go &lt;project-no&gt;</p>
+        <p style={{fontWeight: 'bold'}}>ex: projects go 2</p>
+      </div>
+    );
+  };
+
+  const aboutSection = () => {
+    return(
+      <div>
+        <br/>
+        <p style={{fontWeight: 'bold'}}>Hi, I'm <span style={{color: '#ffB23b'}}>Jacob Moss</span>!</p>
+        <p>I'm a full-stack software engineer and student at the University of Florida.</p>
+        <p>I love writing code, and I am especially passionate about web-development.</p>
+        <p>Download a copy of my resume using the <span style={{color: '#53d480'}}>ls</span> command.</p>
+      </div>
+    );
+  };
   const handleCommand = () => {
     let output;
     switch (input.trim()) {
       case 'help':
         output = printHelp();
         break;
+      case 'about':
+        output = aboutSection();
+        break;
       case 'pwd':
         output = '/home/visitor';
         break;
+      case 'education':
+        output = (<div>
+          <p>Bachelors of Science in Computer Science, <span style={{fontWeight: 'bold', color: '#ffB23b'}}>University of Florida</span></p>
+          <p><span style={{fontWeight: 'bold'}}>GPA:</span> 3.82</p>
+        </div>);
+        break;
       case 'ls':
-        output = 'file1 file2 file3';
+        output = (
+          <a className='github' href={Resume} download>
+              Resume.pdf
+          </a>
+      );
         break;
       case 'clear':
         setHistory([]);
@@ -52,6 +99,39 @@ function App() {
       case 'exit':
         window.close();
         return;
+      case 'projects':
+        output = getProjects();
+        break;
+      case 'projects go 1':
+        window.open('https://swiftread.netlify.app/');
+        output = 'Opening SwiftRead...';
+        break;
+      case 'projects go 2':
+        window.open('https://youtu.be/iTMLC-pSQmY');
+        output = 'Opening Internshark Trailer...';
+        break;
+      case 'projects go 3':
+        window.open('https://jacobmoss.top');
+        output = 'Opening Portfolio...';
+        break;
+      case 'projects go 4':
+        window.open('https://www.casmm.org/');
+        output = 'Opening CaSMM...';
+        break;
+      case 'cd':
+        output = 'Nice try, but that feature is not available in this terminal.';
+        break;
+      case 'hi':
+        output = 'Hello!';
+        break;
+      case 'linkedin':
+        window.open('https://www.linkedin.com/in/jacob-moss-uf/');
+        output = 'Opening LinkedIn...';
+        break;
+      case 'github':
+        window.open('https://github.com/jakemoss127');
+        output = 'Opening GitHub...';
+        break;
       default:
         output = <span><span style={{color: 'red'}}>Unknown command: </span>{input}</span>;
     }
@@ -74,7 +154,7 @@ function App() {
            <p>Welcome to my portfolio terminal. Version (1.0.1)</p>
            <p>----</p>
            <p>This project was built in React, and the source code can be found here: <a className='github' 
-           href='https://github.com/jakemoss127'
+           href='https://github.com/jakemoss127/TerminalPortfolio'
            target='_blank'>
              GitHub Repo</a>
            </p>
