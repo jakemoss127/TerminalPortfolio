@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
-import Resume from '../src/assets/JacobMoss_Resume.pdf'; 
+import Resume from './assets/JacobMoss_Resume.pdf'; 
 
 function App() {
   const [input, setInput] = useState('');
