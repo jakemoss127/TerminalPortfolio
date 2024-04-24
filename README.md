@@ -2,6 +2,8 @@
 
 Welcome to my interactive portfolio terminal. This project simulates a terminal environment where users can learn more about me, my projects, education, and professional background with simple terminal commands.
 
+![Capture](https://github.com/jakemoss127/TerminalPortfolio/assets/93219053/fc775bde-e064-4970-85c8-56b6d4739c07)
+
 ## Features
 
 - **Interactive Terminal:** A mock terminal where users can type commands to navigate through the portfolio.
@@ -23,3 +25,4 @@ To get a local copy up and running follow these simple steps.
 
 ### Installation
 - git clone https://github.com/jakemoss127/TerminalPortfolio.git
+
